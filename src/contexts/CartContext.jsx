@@ -47,7 +47,7 @@ export const CartProvider = ({ children }) => {
         return [...validCart, {
           id: product._id || product.id,
           name: product.name,
-          price: product.price,
+          price: Number(product.price) || 0,
           image: product.images?.[0],
           quantity: 1,
           brand: product.brand?.name
@@ -84,19 +84,16 @@ export const CartProvider = ({ children }) => {
 
   const getTotalItems = () => {
     return cart.reduce((total, item) => {
-      if (!item || typeof item.quantity !== 'number') {
-        return total;
-      }
-      return total + item.quantity;
+      const quantity = Number(item?.quantity) || 0;
+      return total + quantity;
     }, 0);
   };
 
   const getTotalPrice = () => {
     return cart.reduce((total, item) => {
-      if (!item || typeof item.price !== 'number' || typeof item.quantity !== 'number') {
-        return total;
-      }
-      return total + (item.price * item.quantity);
+      const price = Number(item?.price) || 0;
+      const quantity = Number(item?.quantity) || 0;
+      return total + (price * quantity);
     }, 0);
   };
 

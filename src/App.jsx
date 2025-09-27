@@ -12,6 +12,7 @@ import Wishlist from "./pages/wishlist/Wishlist";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Footer from "./components/Footer";
+import Order from "./pages/order/Order";
 function App() {
   return (
     <CartProvider>
@@ -49,6 +50,7 @@ function App() {
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="login" element={<Login /> } />
             <Route path="register" element={<Register /> } />
+            <Route path="order" element={<Order /> } />
             <Route path="/" element={<Footer /> } />
           </Route>
 

@@ -17,6 +17,7 @@ import Footer from "../components/Footer";
 
 const navItems = [
   { name: "Products", to: "/" },
+  { name: "My Orders", to: "/order" },
   
 ];
 
@@ -31,15 +32,7 @@ function Navbar() {
 
   const isActiveLink = (path) => location.pathname === path;
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      // Navigate to products page with search query
-      window.location.href = `/products?search=${encodeURIComponent(
-        searchQuery
-      )}`;
-    }
-  };
+ 
 
   return (
     <div className="min-h-screen ">
